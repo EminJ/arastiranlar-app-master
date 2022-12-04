@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const dbConfig = require("../config/db.config");
+require('dotenv').config();
 mongoose.Promise = global.Promise;
 
 const db = {};
@@ -8,7 +8,7 @@ db.user = require("./user.model");
 db.post = require("./post.model");
 
 mongoose
-.connect(`${dbConfig.HOST}`, {
+.connect(`${process.env.DB}`, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })

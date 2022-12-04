@@ -1,6 +1,6 @@
 const db = require("../models");
 const jwt = require("jsonwebtoken");
-const config = require("../config/auth.config");
+require('dotenv').config();
 var ObjectId = require('mongodb').ObjectId;
 const User = db.user;
 const Post = db.post;
@@ -11,7 +11,7 @@ exports.addpost = (req, res, next) => {
     return res.status(403).send({ message: "Token Bulunmamaktadır!" });
   }
 
-  jwt.verify(token, config.secret, (err, decoded) => {
+  jwt.verify(token, process.env.SECRET, (err, decoded) => {
     if (err) {
       return res.status(401).send({ message: "Geçersiz Token!" });
     }
@@ -63,7 +63,7 @@ exports.control = (req, res) => {
   if (!token) {
     return res.status(200).send({ message: "Token Bulunmamaktadır!" });
   }
-  jwt.verify(token, config.secret, (err, decoded) => {
+  jwt.verify(token, process.env.SECRET, (err, decoded) => {
     if (err) {
       return res.status(401).send({ message: "Geçersiz Token!" });
     }
@@ -102,7 +102,7 @@ exports.postlike = (req, res) => {
   if (!token) {
     return res.status(403).send({ message: "Token Bulunmamaktadır!" });
   }
-  jwt.verify(token, config.secret, (err, decoded) => {
+  jwt.verify(token, process.env.SECRET, (err, decoded) => {
     if (err) {
       return res.status(401).send({ message: "Geçersiz Token!" });
     }
@@ -172,7 +172,7 @@ exports.postdislike = (req, res) => {
   if (!token) {
     return res.status(403).send({ message: "Token Bulunmamaktadır!" });
   }
-  jwt.verify(token, config.secret, (err, decoded) => {
+  jwt.verify(token, process.env.SECRET, (err, decoded) => {
     if (err) {
       return res.status(401).send({ message: "Geçersiz Token!" });
     }
@@ -243,7 +243,7 @@ exports.comments_dell = (req, res) => {
   if (!token) {
     return res.status(403).send({ message: "Token Bulunmamaktadır!" });
   }
-  jwt.verify(token, config.secret, (err, decoded) => {
+  jwt.verify(token, process.env.SECRET, (err, decoded) => {
     if (err) {
       return res.status(401).send({ message: "Geçersiz Token!" });
     }
@@ -323,7 +323,7 @@ exports.send_message = (req, res) => {
   if (!token) {
     return res.status(403).send({ message: "Token Bulunmamaktadır!" });
   }
-  jwt.verify(token, config.secret, (err, decoded) => {
+  jwt.verify(token, process.env.SECRET, (err, decoded) => {
     if (err) {
       return res.status(401).send({ message: "Geçersiz Token!" });
     }
@@ -350,7 +350,7 @@ exports.edit_message = (req, res) => {
   if (!token) {
     return res.status(403).send({ message: "Token Bulunmamaktadır!" });
   }
-  jwt.verify(token, config.secret, (err, decoded) => {
+  jwt.verify(token, process.env.SECRET, (err, decoded) => {
     if (err) {
       return res.status(401).send({ message: "Geçersiz Token!" });
     }
@@ -378,7 +378,7 @@ exports.show_message_user = (req, res) => {
   if (!token) {
     return res.status(403).send({ message: "Token Bulunmamaktadır!" });
   }
-  jwt.verify(token, config.secret, (err, decoded) => {
+  jwt.verify(token, process.env.SECRET, (err, decoded) => {
     if (err) {
       return res.status(401).send({ message: "Geçersiz Token!" });
     }
@@ -406,7 +406,7 @@ exports.show_message = (req, res) => {
       });
   }
   else{
-    jwt.verify(token, config.secret, (err, decoded) => {
+    jwt.verify(token, process.env.SECRET, (err, decoded) => {
       if (err) {
         return res.status(401).send({ message: "Geçersiz Token!" });
       }
@@ -429,7 +429,7 @@ exports.postsave = (req, res) => {
   if (!token) {
     return res.status(403).send({ message: "Token Bulunmamaktadır!" });
   }
-  jwt.verify(token, config.secret, (err, decoded) => {
+  jwt.verify(token, process.env.SECRET, (err, decoded) => {
     if (err) {
       return res.status(401).send({ message: "Geçersiz Token!" });
     }
@@ -460,7 +460,7 @@ exports.postdell = (req, res) => {
   if (!token) {
     return res.status(403).send({ message: "Token Bulunmamaktadır!" });
   }
-  jwt.verify(token, config.secret, (err, decoded) => {
+  jwt.verify(token, process.env.SECRET, (err, decoded) => {
     if (err) {
       return res.status(401).send({ message: "Geçersiz Token!" });
     }

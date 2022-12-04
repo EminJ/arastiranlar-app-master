@@ -1,4 +1,4 @@
-const config = require("../config/auth.config");
+require('dotenv').config();
 const db = require("../models");
 const User = db.user;
 var jwt = require("jsonwebtoken");
@@ -117,7 +117,7 @@ const validateEmail = (email) => {
 };
 
 function gettoken(res,id_) {
-  var token = jwt.sign({ id: id_ }, config.secret, {
+  var token = jwt.sign({ id: id_ }, process.env.SECRET, {
     expiresIn: '360d',
   });
   return res.cookie("session_security", token,{

@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const config = require("../config/auth.config");
+require('dotenv').config();
 const db = require("../models");
 var bcrypt = require("bcryptjs");
 var ObjectId = require('mongodb').ObjectId;
@@ -14,7 +14,7 @@ exports.userBoard = (req, res) => {
     });
   }
 
-  jwt.verify(token, config.secret, (err, decoded) => {
+  jwt.verify(token, process.env.SECRET, (err, decoded) => {
     if (err) {
       return res.status(200).send({
         message: "Geçersiz Token!"
@@ -50,7 +50,7 @@ exports.userBoardAdmin = (req, res) => {
     });
   }
 
-  jwt.verify(token, config.secret, (err, decoded) => {
+  jwt.verify(token, process.env.SECRET, (err, decoded) => {
     if (err) {
       return res.status(401).send({
         message: "Geçersiz Token!"
@@ -83,7 +83,7 @@ exports.deleteuser = (req, res) => {
     });
   }
 
-  jwt.verify(tokenadmin, config.secret, (err, decoded) => {
+  jwt.verify(tokenadmin, process.env.SECRET, (err, decoded) => {
     if (err) {
       return res.status(401).send({
         message: "Geçersiz Token!"
@@ -115,7 +115,7 @@ exports.updateuser = (req, res) => {
     });
   }
 
-  jwt.verify(tokenadmin, config.secret, (err, decoded) => {
+  jwt.verify(tokenadmin, process.env.SECRET, (err, decoded) => {
     if (err) {
       return res.status(401).send({
         message: "Geçersiz Token!"
@@ -200,7 +200,7 @@ exports.userlike = (req, res) => {
     });
   }
 
-  jwt.verify(token, config.secret, (err, decoded) => {
+  jwt.verify(token, process.env.SECRET, (err, decoded) => {
     if (err) {
       return res.status(401).send({
         message: "Geçersiz Token!"
@@ -258,7 +258,7 @@ exports.changeuser = (req, res) => {
       message: "Token Bulunmamaktadır!"
     });
   }
-  jwt.verify(token, config.secret, (err, decoded) => {
+  jwt.verify(token, process.env.SECRET, (err, decoded) => {
     if (err) {
       return res.status(401).send({
         message: "Geçersiz Token!"
