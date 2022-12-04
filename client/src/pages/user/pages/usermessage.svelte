@@ -1,0 +1,74 @@
+<script>
+import './styles.css';
+import axios from "axios";
+import { onMount } from "svelte";
+let token;
+onMount(async () => {
+  token=decodeURIComponent(document.cookie).split(";")[0].split("=")[1];
+  });
+let postsInfo;
+async function loadposts() {
+  const { data } = await axios.get("http://localhost:5678/api/show/post");
+  postsInfo = data.blogposts;
+
+  const options = {
+    method: "POST",
+    url: "http://localhost:5678/api/user/show/likes",
+    headers: { "Content-Type": "application/json" },
+    data: {
+      token: token,
+    },
+  };
+  const response = await axios.request(options);
+  let originpost=[];
+  for (let i = 0; i < postsInfo.length; i++) {
+    const element = postsInfo[i];
+    for (let j = 0; j < response.data.comments.length; j++) {
+      const elementlike = response.data.comments[j];
+      if(element._id==elementlike.post){
+        originpost.push(element);
+      }
+    }
+  }
+  return originpost;
+}
+</script>
+{#await loadposts()}
+  <div class="fullscreen">
+    <img src="./images/logo.png" alt="logo-arastiranlar" style="width: 100px;" id="waitanimation">
+    <h1>Loading..</h1>
+  </div>
+{:then postsArray}
+{#each postsArray as post}
+<div class="outline">
+  <div class="area0">
+    <div class="img">
+      
+    </div>
+    <b>{post.post_author}</b>
+  </div>
+  <div class="area1">
+    <div class="list0">
+      <div class="title">
+        <a href="/post?id={post._id}">
+          <b>{post.post_title}</b>
+        </a>
+      </div>
+      <div class="category">
+        <b>{post.post_category}</b>
+      </div>
+    </div>
+    <div class="list1">
+      <div class="explanation">
+        <b>{post.post_explanation}</b>
+      </div>
+    </div>
+    <div class="list2">
+      <b>{post.post_date.split('T')[0]}</b>
+    </div>
+  </div>
+</div>
+{/each}
+{:catch error}
+	<p style="color: red">Error..</p>
+{/await}

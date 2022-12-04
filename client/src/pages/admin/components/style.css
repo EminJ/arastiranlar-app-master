@@ -1,0 +1,45 @@
+.fullscreen{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.fullscreen h1{
+    color: rgb(45, 45, 45);
+}
+#waitanimation {
+    width: 100px;
+    border-radius: 100%;
+    animation-name: spinner .7s linear infinite;
+    -webkit-animation: spinner .7s linear  infinite;
+    -moz-animation: spinner .7s linear  infinite;
+}
+#waitanimation:after{
+    position: absolute;
+    content:'';
+    width: 100px;
+    border-radius: 100%;
+    border-top:3px solid tomato;
+    border-bottom:3px solid tomato;
+    border-left:3px solid tomato;
+    border-right:3px solid transparent;
+    top: -3px;
+    left: -3px;
+}
+@keyframes spinner{
+  from {transform: rotate(0deg);}
+  to {transform: rotate(180deg);}
+}
+ 
+@-webkit-keyframes spinner{
+  from {transform: rotate(0deg);}
+  to {transform: rotate(180deg);}
+}
+ 
+@-moz-keyframes spinner{
+  from {transform: rotate(0deg);}
+  to {transform: rotate(180deg);}
+}

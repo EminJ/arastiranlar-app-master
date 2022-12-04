@@ -1,0 +1,11 @@
+---
+import Layout from "../../components/main.astro";
+import Navbar from "../../components/navbar.svelte";
+import App from "./App.svelte";
+const id = Astro.url.searchParams.get("id")! || "";
+---
+
+<Layout title="Araştıranlar Blog">
+  <Navbar client:idle />
+  <App params={id} client:idle />
+</Layout>

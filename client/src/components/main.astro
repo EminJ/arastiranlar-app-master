@@ -1,0 +1,17 @@
+---
+import '../styles/style.css';
+const title = Astro.props;
+---
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/images/logo.png" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+		<meta name="generator" content={Astro.generator} />
+		<title>{Astro.props.title}</title>
+	</head>
+	<body>
+        <slot/>
+	</body>
+</html>

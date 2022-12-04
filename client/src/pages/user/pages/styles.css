@@ -1,0 +1,93 @@
+.outline{
+    width:720px;
+    height:180px;
+    padding: 5px;
+    border-radius: 15px;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    background-color: rgb(246, 240, 233);
+    margin: 10px;
+    border: 2px solid rgb(113, 105, 105)  }
+  .area0{
+    width: 160px;
+  }
+  .area0 .img{
+    height: 155px;
+    margin-bottom: 5px;
+    background-color: rgb(236, 230, 222);
+  }
+  .area1{
+    width: 560px;
+  }
+  .area1 .list0{
+    width: 550px;
+    margin: 0 5px;
+    height: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    overflow: hidden;
+    border-radius: 3px;
+    border-bottom: 1px solid rgb(18, 18, 18);
+  }
+  .area1 .list1{
+    width: 550px;
+    height: 120px;
+    margin: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    overflow: hidden;
+  }
+  .area1 .list2{
+    float: right;
+    margin-right: 5px;
+  }
+
+  .fullscreen{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.fullscreen h1{
+    color: rgb(45, 45, 45);
+}
+#waitanimation {
+    width: 100px;
+    border-radius: 100%;
+    animation-name: spinner .7s linear infinite;
+    -webkit-animation: spinner .7s linear  infinite;
+    -moz-animation: spinner .7s linear  infinite;
+}
+#waitanimation:after{
+    position: absolute;
+    content:'';
+    width: 100px;
+    border-radius: 100%;
+    border-top:3px solid tomato;
+    border-bottom:3px solid tomato;
+    border-left:3px solid tomato;
+    border-right:3px solid transparent;
+    top: -3px;
+    left: -3px;
+}
+@keyframes spinner{
+  from {transform: rotate(0deg);}
+  to {transform: rotate(180deg);}
+}
+ 
+@-webkit-keyframes spinner{
+  from {transform: rotate(0deg);}
+  to {transform: rotate(180deg);}
+}
+ 
+@-moz-keyframes spinner{
+  from {transform: rotate(0deg);}
+  to {transform: rotate(180deg);}
+}
