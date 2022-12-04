@@ -1,3 +1,3 @@
 module.exports = {
-  HOST: 'mongodb+srv://muhammed14sh:PSQeQn8wClki1j2V@blog.kptw12m.mongodb.net/Blog'
+  HOST: 'mongodb+srv://muhammed14sh:t7lWCIBVh7IdSk4Z@blog.kptw12m.mongodb.net/Blog'
 };
