@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "serve:server": "nodemon src/index.js",
-    "serve:client": "cd client && npm run dev",
+    "serve:client": "cd client && npm i && npm run dev",
     "dev": "concurrently \"npm run serve:client\" \"npm run serve:server\""
   },
   "keywords": [],
