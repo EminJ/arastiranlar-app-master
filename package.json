@@ -4,10 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node src/index.js",
-    "serve:server": "npm install && nodemon src/index.js",
-    "serve:client": "cd client && npm install && npm run dev",
-    "dev": "concurrently \"npm run serve:server\" \"npm run serve:client\""
+    "serve:server": "nodemon src/index.js",
+    "serve:client": "cd client && npm run dev",
+    "dev": "concurrently \"npm run serve:client\" \"npm run serve:server\""
   },
   "keywords": [],
   "author": "",
