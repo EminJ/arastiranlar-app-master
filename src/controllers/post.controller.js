@@ -474,3 +474,35 @@ exports.postdell = (req, res) => {
   });
 });
 }
+const multer = require("multer");
+const path = require("path");
+const fs = require("fs");
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "uploads");
+  },
+  filename: function (req, file, cb) {
+    cb(
+      null,
+      file.fieldname + "-" + Date.now() + path.extname(file.originalname)
+    );
+  },
+});
+
+const upload = multer({ storage: storage });
+
+exports.postimg = upload.single("myImage"),(req, res) => {
+  const obj = {
+    img: {
+        data: fs.readFileSync(path.join(__dirname + "/uploads/" + req.file.filename)),
+        contentType: "image/png"
+    }
+}
+const newImage = new Post({
+  post_image: obj.img
+});
+
+newImage.save((err) => {
+    err ? console.log(err) : res.redirect("/");
+});
+}

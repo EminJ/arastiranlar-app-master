@@ -41,5 +41,8 @@ module.exports = function(app) {
   app.post("/api/admin/post/del",
     controller.postdell
   ); 
+  app.post("/api/post/image/upload",
+    controller.postimg
+  ); 
 };
 

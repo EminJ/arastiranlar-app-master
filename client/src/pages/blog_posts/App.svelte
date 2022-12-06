@@ -8,5 +8,6 @@
     const { data } = await axios.get('http://localhost:5678/api/show/post');
     postsInfo = data.blogposts;
   });
+  
 </script>
 <List postsArray={postsInfo}/>
