@@ -1,7 +1,6 @@
 {
-  "name": "asdasdasd",
-  "version": "1.0.0",
-  "description": "",
+  "name": "arastiranlar-blog-app",
+  "version": "1.0.1",
   "main": "index.js",
   "scripts": {
     "serve:server": "nodemon src/index.js",
