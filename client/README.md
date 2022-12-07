@@ -1,2 +1,0 @@
-# Araştıranlar
-## Blog Sayfası Client
