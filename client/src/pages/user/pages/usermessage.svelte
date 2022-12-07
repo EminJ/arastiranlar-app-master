@@ -24,8 +24,8 @@ async function loadposts() {
   for (let i = 0; i < postsInfo.length; i++) {
     const element = postsInfo[i];
     for (let j = 0; j < response.data.comments.length; j++) {
-      const elementlike = response.data.comments[j];
-      if(element._id==elementlike.post){
+      const elementcomment = response.data.comments[j];
+      if(element._id==elementcomment.post){
         originpost.push(element);
       }
     }

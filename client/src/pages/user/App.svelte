@@ -8,7 +8,6 @@
   import { onMount } from "svelte";
 
   let login;
-  let firstlogin;
   onMount(async () => {
     login=gets();
   });

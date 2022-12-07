@@ -243,4 +243,47 @@
     background-color: #cd8e12;
     margin: 0 5px;
   }
+  @media screen and (max-width: 1080px) {
+    .outline{
+      width: 860px;
+    }
+    }
+	@media screen and (max-width: 960px) {
+    .outline{
+      width: 750px;
+    }
+    }
+    @media screen and (max-width: 820px) {
+      .outline{
+      width: 550px;
+    }
+    .message_outline{
+      width: 460px;
+    }
+    .commentstext{
+      width: 290px;
+    }
+    }
+    @media screen and (max-width: 620px) {
+      .outline{
+      width: 480px;
+    }
+    .message_outline{
+      width: 380px;
+    }
+    .commentstext{
+      width: 200px;
+    }
+    }
+    @media screen and (max-width: 540px) {
+      .outline{
+      width: 350px;
+    }
+    .message_outline{
+      width: 320px;
+    }
+    .commentstext{
+      width: 200px;
+    }
+    }
 </style>

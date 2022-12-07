@@ -47,7 +47,7 @@
 <style>
   .outline{
     width:720px;
-    height:180px;
+    height:auto;
     padding: 5px;
     border-radius: 15px;
     display: flex;
@@ -89,7 +89,10 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    overflow: hidden;
+    overflow-wrap: break-word;
+  }
+  .list1 .explanation{
+    width: 100%;
   }
   .area1 .list2{
     float: right;
@@ -162,4 +165,130 @@
   #search:focus{
     outline: 0;
   }
+  @media screen and (max-width: 1080px) {
+    .searchbox{
+      width: 700px;
+    }
+    #search{
+      width: 630px;
+    }
+    .area1{
+      width: 470px;
+    }
+    .area1 .list0{
+      width: 460px;
+    }
+    .area1 .list1{
+      width: 460px;
+    }
+    .outline{
+      width: 630px;
+    }
+    }
+	@media screen and (max-width: 960px) {
+    .searchbox{
+      width: 600px;
+    }
+    #search{
+      width: 530px;
+    }
+    .area1{
+      width: 370px;
+    }
+    .area1 .list0{
+      width: 360px;
+    }
+    .area1 .list1{
+      width: 360px;
+    }
+    .outline{
+      width: 530px;
+    }
+    }
+    @media screen and (max-width: 760px) {
+    .searchbox{
+      width: 500px;
+    }
+    #search{
+      width: 430px;
+    }
+    .area1{
+      width: 370px;
+    }
+    .area1 .list0{
+      width: 360px;
+    }
+    .area1 .list1{
+      width: 360px;
+    }
+    .outline{
+      width: 530px;
+    }
+    }
+    @media screen and (max-width: 660px) {
+    .searchbox{
+      width: 400px;
+    }
+    #search{
+      width: 330px;
+    }
+    .outline{
+      width: 315px;
+      flex-direction: column;
+    }
+    .area0{
+      width: 100%;
+    }
+    .area0 .img{
+      height: 100px;
+      width: 305px;
+      margin: auto;
+    }
+    .area1{
+      width: 100%;
+    }
+    .area1 .list0{
+      width: 100%;
+      margin: 0;
+    }
+    .list0 .title{
+      overflow-wrap: break-word;
+      width: 230px;
+    }
+    }
+    @media screen and (max-width: 400px) {
+    .searchbox{
+      width: 260px;
+    }
+    #search{
+      width: 200px;
+    }
+    .outline{
+      width: 260px;
+      flex-direction: column;
+    }
+    .area0{
+      width: 100%;
+    }
+    .area0 .img{
+      height: 100px;
+      width: 250px;
+      margin: auto;
+    }
+    .area1{
+      width: 100%;
+    }
+    .area1 .list0{
+      width: 100%;
+      margin: 0;
+    }
+    .area1 .list1{
+      width: 100%;
+      margin: 0;
+    }
+    .list0 .title{
+      overflow-wrap: break-word;
+      width: 160px;
+    }
+    }
 </style>

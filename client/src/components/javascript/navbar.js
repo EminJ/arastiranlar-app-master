@@ -3,11 +3,14 @@ import axios from 'axios';
 
 export function setup() {
   const lhbtn=document.getElementById('l_h_btn');
+  const lhbtn2=document.getElementById('l_h_btn2');
   let decodedCookie = decodeURIComponent(document.cookie).split(';')[0].split('=')[1];
   if(decodedCookie){
     lhbtn.innerHTML="Hesabım";
+    lhbtn2.innerHTML="Hesabım";
   }else{
     lhbtn.innerHTML="Giriş Yap";
+    lhbtn2.innerHTML="Giriş Yap";
   }
   document.getElementById('nav').style.opacity=100;
 }
