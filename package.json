@@ -3,8 +3,8 @@
   "version": "1.0.1",
   "main": "index.js",
   "scripts": {
-    "serve:server": "nodemon src/index.js",
-    "serve:client": "cd client && npm i && npm run dev",
+    "serve:server": "node src/index.js",
+    "serve:client": "cd client && npm install && npm run dev",
     "dev": "concurrently \"npm run serve:client\" \"npm run serve:server\""
   },
   "keywords": [],
