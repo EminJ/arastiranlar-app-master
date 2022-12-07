@@ -27,5 +27,4 @@ app.get('/', (req,res)=>{
 require("./routes/auth.routes")(app);
 require("./routes/post.routes")(app);
 require("./routes/user.routes")(app);
-
 module.exports = app;
