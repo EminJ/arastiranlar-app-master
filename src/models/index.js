@@ -1,10 +1,12 @@
 const mongoose = require('mongoose');
 require('dotenv').config();
+
 mongoose.Promise = global.Promise;
 const db = {};
 
 db.user = require("./user.model");
 db.post = require("./post.model");
+mongoose.set('strictQuery', true);
 
 mongoose
 .connect(`${process.env.DB}`, {
@@ -18,5 +20,4 @@ mongoose
   console.error("Connection error", err);
   process.exit();
 });
-
 module.exports = db;

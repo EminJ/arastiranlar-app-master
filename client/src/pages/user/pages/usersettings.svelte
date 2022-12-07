@@ -82,4 +82,21 @@
     background-color: #eeeff0;
     outline: none;
   }
+  @media screen and (max-width: 1080px) {
+    .col{
+      width: 700px;
+      margin: 20px auto;
+    }
+    .col input{
+      width: 650px;
+    }
+    }
+    @media screen and (max-width: 760px) {
+    .col{
+      width: 90%;
+    }
+    .col input{
+      width: 70%;
+    }
+    }
   </style>

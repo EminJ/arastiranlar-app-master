@@ -2,7 +2,6 @@ const jwt = require("jsonwebtoken");
 require('dotenv').config();
 const db = require("../models");
 var bcrypt = require("bcryptjs");
-var ObjectId = require('mongodb').ObjectId;
 const User = db.user;
 const Post = db.post;
 
@@ -21,9 +20,8 @@ exports.userBoard = (req, res) => {
       });
     }
 
-    var Object = new ObjectId(decoded.id);
     User.findOne({
-      _id: Object
+      _id: decoded.id
     }, function (err, info) {
       if(!info._id){
        return  res.status(200).send({message:0});
@@ -57,9 +55,8 @@ exports.userBoardAdmin = (req, res) => {
       });
     }
 
-    var Object = new ObjectId(decoded.id);
     User.findOne({
-      _id: Object
+      _id: decoded.id
     }, function (err, info) {
       if (info.roles == '635eb25438b20b702d8adfc9' || info.roles == '635eb25438b20b702d8adfc8') {
         User.find().exec(function (err, user) {
@@ -90,9 +87,8 @@ exports.deleteuser = (req, res) => {
       });
     }
 
-    var Object = new ObjectId(decoded.id);
     User.findOne({
-      _id: Object
+      _id: decoded.id
     }, function (err, info) {
       if (info.roles == '635eb25438b20b702d8adfc9' || info.roles == '635eb25438b20b702d8adfc8') {
         User.find({ _id:token }).remove().exec();
@@ -122,9 +118,8 @@ exports.updateuser = (req, res) => {
       });
     }
 
-    var Object = new ObjectId(decoded.id);
     User.findOne({
-      _id: Object
+      _id: decoded.id
     }, function (err, info) {
       if (info.roles == '635eb25438b20b702d8adfc9' || info.roles == '635eb25438b20b702d8adfc8') {
         if (select == 1) {
@@ -207,9 +202,8 @@ exports.userlike = (req, res) => {
       });
     }
 
-    var Object = new ObjectId(decoded.id);
     User.findOne({
-      _id: Object
+      _id: decoded.id
     }, function (err, info) {
 
       res.status(200).send({
@@ -264,9 +258,9 @@ exports.changeuser = (req, res) => {
         message: "Geçersiz Token!"
       });
     }
-    var Object = new ObjectId(decoded.id);
+
     User.findOne({
-      _id: Object
+      _id: decoded.id
     }, function (err, info) {
       try {
         if (req.body.c_email == '' && req.body.c_name == '' && req.body.c_surname == '' && req.body.c_username == '' && req.body.c_password == '') {

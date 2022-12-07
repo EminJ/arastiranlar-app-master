@@ -1,7 +1,6 @@
 const db = require("../models");
 const jwt = require("jsonwebtoken");
 require('dotenv').config();
-var ObjectId = require('mongodb').ObjectId;
 const User = db.user;
 const Post = db.post;
 
@@ -16,8 +15,7 @@ exports.addpost = (req, res, next) => {
       return res.status(401).send({ message: "Geçersiz Token!" });
     }
 
-    var Object = new ObjectId(decoded.id);
-    User.findOne({ _id: Object }, function (err, info) {
+    User.findOne({ _id: decoded.id }, function (err, info) {
       var author = info.username;
       const post = new Post({
         post_author: author,
@@ -69,9 +67,8 @@ exports.control = (req, res) => {
     }
 
 
-    var Object = new ObjectId(decoded.id);
     let out = [];
-    User.findOne({ _id: Object }, function (err, info) {
+    User.findOne({ _id: decoded.id }, function (err, info) {
       for (let i = 0; i < info.postlike.length; i++) {
         const like = info.postlike[i];
         if (like == post) {
@@ -107,9 +104,7 @@ exports.postlike = (req, res) => {
       return res.status(401).send({ message: "Geçersiz Token!" });
     }
 
-
-    var Object = new ObjectId(decoded.id);
-    User.findOne({ _id: Object }, function (err, info) {
+    User.findOne({ _id: decoded.id }, function (err, info) {
       for (let i = 0; i < info.postdislike.length; i++) {
         const element = info.postdislike[i];
         if (element == post) {
@@ -177,9 +172,7 @@ exports.postdislike = (req, res) => {
       return res.status(401).send({ message: "Geçersiz Token!" });
     }
 
-
-    var Object = new ObjectId(decoded.id);
-    User.findOne({ _id: Object }, function (err, info) {
+    User.findOne({ _id: decoded.id }, function (err, info) {
       for (let i = 0; i < info.postlike.length; i++) {
         const element = info.postlike[i];
         if (element == post) {
@@ -200,7 +193,7 @@ exports.postdislike = (req, res) => {
           return
         }
       }
-      User.findOne({ _id: Object }, function (err, info) {
+      User.findOne({ _id: decoded.id }, function (err, info) {
         for (let i = 0; i < info.postdislike.length; i++) {
           const element = info.postdislike[i];
           if (element == post) {
@@ -247,8 +240,7 @@ exports.comments_dell = (req, res) => {
     if (err) {
       return res.status(401).send({ message: "Geçersiz Token!" });
     }
-    var Object = new ObjectId(decoded.id);
-    User.findOne({ _id: Object }, function (err, info) {
+    User.findOne({ _id: decoded.id }, function (err, info) {
       Post.findOne({ _id: tokenpost }, function (err, post) {
         for (let i = 0; i < post.post_comment.length; i++) {
           const element = post.post_comment[i];
@@ -328,8 +320,8 @@ exports.send_message = (req, res) => {
       return res.status(401).send({ message: "Geçersiz Token!" });
     }
     let messageid = Math.floor(Math.random() * 10000000) + 1000000;
-    var Object = new ObjectId(decoded.id);
-    User.findOne({ _id: Object }, function (err, info) {
+
+    User.findOne({ _id: decoded.id }, function (err, info) {
       let user = info.username
       let userid = info._id
       info.postcomments.push({ post, userid, messageid, message, datetime })
@@ -357,8 +349,7 @@ exports.edit_message = (req, res) => {
     
     ///// GERİ DÖNÜLECEK.......................
 
-    var Object = new ObjectId(decoded.id);
-    User.findOne({ _id: Object }, function (err, info) {
+    User.findOne({ _id: decoded.id }, function (err, info) {
       for (let i = 0; i < info.postcomments.length; i++) {
         if(info.postcomments[i].messageid==messageids){
         
@@ -382,7 +373,7 @@ exports.show_message_user = (req, res) => {
     if (err) {
       return res.status(401).send({ message: "Geçersiz Token!" });
     }
-      User.findOne({ _id: ObjectId(decoded.id) }, function (err, user) {
+      User.findOne({ _id: decoded.id }, function (err, user) {
         user.postcomments.forEach((message) => {
           blogmessage.push(message.post);
         });
@@ -397,7 +388,7 @@ exports.show_message = (req, res) => {
   const post = req.body.postid;
   const token = req.body.token;
   if (!token ||token=='') {
-    Post.findOne({ _id: ObjectId(post) }, function (err, post) {
+    Post.findOne({ _id: decoded.id }, function (err, post) {
       post.post_comment.forEach((message) => {
         blogmessage.push(message);
       });
@@ -410,8 +401,8 @@ exports.show_message = (req, res) => {
       if (err) {
         return res.status(401).send({ message: "Geçersiz Token!" });
       }
-      User.findOne({ _id: ObjectId(decoded.id) }, function (err, user) {
-        Post.findOne({ _id: ObjectId(post) }, function (err, post) {
+      User.findOne({ _id: decoded.id }, function (err, user) {
+        Post.findOne({ _id: post }, function (err, post) {
           post.post_comment.forEach((message) => {
             blogmessage.push(message);
           });
@@ -434,9 +425,7 @@ exports.postsave = (req, res) => {
       return res.status(401).send({ message: "Geçersiz Token!" });
     }
 
-
-    var Object = new ObjectId(decoded.id);
-    User.findOne({ _id: Object }, function (err, info) {
+    User.findOne({ _id: decoded.id }, function (err, info) {
       for (let i = 0; i < info.postsave.length; i++) {
         const element = info.postsave[i];
         if (element == post) {
@@ -464,8 +453,8 @@ exports.postdell = (req, res) => {
     if (err) {
       return res.status(401).send({ message: "Geçersiz Token!" });
     }
-    var Object = new ObjectId(decoded.id);
-    User.findOne({ _id: Object }, function (err, info) {
+    
+    User.findOne({ _id: decoded.id }, function (err, info) {
       if(info.roles!='635eb25438b20b702d8adfc9' && info.roles!='635eb25438b20b702d8adfc8'){
         return res.status(401).send({ message: "Yetkisiz Token!"+info.roles });
       }

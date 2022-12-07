@@ -150,4 +150,65 @@
   from {transform: rotate(0deg);}
   to {transform: rotate(180deg);}
 }
+@media screen and (max-width: 1280px) {
+  .leftpanel{
+      width: 190px;
+    }
+    .leftpanel ul li{
+      margin: 30px 0;
+    }
+    .main-panel{
+      width: 1080px;
+    }
+    }
+    @media screen and (max-width: 1080px) {
+      .usercont{
+        flex-direction: column;
+      }
+    .leftpanel{
+      width: 760px;
+      display: flex;
+    }
+    .leftpanel ul{
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      font-size: 1.2rem;
+      flex-wrap: wrap;
+    }
+    .leftpanel ul li{
+      margin: 20px;
+    }
+    .main-panel{
+      width: 760px;
+    }
+    .right-mainpanel{
+      width: 760px;
+    }
+    }
+    @media screen and (max-width: 760px) {
+    .leftpanel{
+      width: 100%;
+      display: flex;
+    }
+    .leftpanel ul{
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      font-size: 1.2rem;
+      flex-wrap: wrap;
+    }
+    .leftpanel ul li{
+      margin: 20px;
+    }
+    .main-panel{
+      width: 100%;
+    }
+    .right-mainpanel{
+      width: 90%;
+      margin: 0 5%;
+    }
+    }
 </style>

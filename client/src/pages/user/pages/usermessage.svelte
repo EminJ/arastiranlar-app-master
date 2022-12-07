@@ -39,36 +39,40 @@ async function loadposts() {
     <h1>Loading..</h1>
   </div>
 {:then postsArray}
-{#each postsArray as post}
-<div class="outline">
-  <div class="area0">
-    <div class="img">
-      
-    </div>
-    <b>{post.post_author}</b>
+  {#await postsArray}
+  <div class="fullscreen">
+    <img src="./images/logo.png" alt="logo-arastiranlar" style="width: 100px;" id="waitanimation">
+    <h1>Loading..</h1>
   </div>
-  <div class="area1">
-    <div class="list0">
-      <div class="title">
-        <a href="/post?id={post._id}">
-          <b>{post.post_title}</b>
-        </a>
+{:then postsArray} 
+  {#each postsArray as post}
+    <div class="outline">
+      <div class="area0">
+        <div class="img">
+        </div>
+        <b>{post.post_author}</b>
       </div>
-      <div class="category">
-        <b>{post.post_category}</b>
+      <div class="area1">
+        <div class="list0">
+          <div class="title">
+            <a href="/post?id={post._id}">
+              <b>{post.post_title}</b>
+            </a>
+          </div>
+          <div class="category">
+            <b>{post.post_category}</b>
+          </div>
+        </div>
+        <div class="list1">
+          <div class="explanation">
+            <b>{post.post_explanation}</b>
+          </div>
+        </div>
+        <div class="list2">
+          <b>{post.post_date.split('T')[0]}</b>
+        </div>
       </div>
     </div>
-    <div class="list1">
-      <div class="explanation">
-        <b>{post.post_explanation}</b>
-      </div>
-    </div>
-    <div class="list2">
-      <b>{post.post_date.split('T')[0]}</b>
-    </div>
-  </div>
-</div>
-{/each}
-{:catch error}
-	<p style="color: red">Error..</p>
+  {/each}
+{/await}
 {/await}

@@ -169,7 +169,7 @@
     }
     @media screen and (max-width: 660px) {
         .editor-wrapper {
-            width: 380px;
+            width: 100%;
         }
     }
 </style>
