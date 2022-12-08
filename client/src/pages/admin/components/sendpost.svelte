@@ -11,17 +11,7 @@
         ["clean"],
     ];
 
-    onMount(async () => {
-        const { default: Quill } = await import("quill");
 
-        let quill = new Quill(editor, {
-            modules: {
-                toolbar: toolbarOptions,
-            },
-            theme: "snow",
-            placeholder: "Blog Yazmaya başla...",
-        });
-    });
 </script>
 
 <ul>
@@ -60,7 +50,7 @@
     <li>
         <p>Gönderi İçeriği</p>
         <div class="editor-wrapper">
-            <div bind:this={editor} />
+            
         </div>
     </li>
     <li>
