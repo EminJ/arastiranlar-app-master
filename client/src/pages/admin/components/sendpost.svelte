@@ -171,5 +171,11 @@
         .editor-wrapper {
             width: 100%;
         }
+        #send_explanation{
+            width: 90%;
+        }
+        #send_title{
+            width: 90%;
+        }
     }
 </style>
