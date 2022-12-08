@@ -1,0 +1,14 @@
+---
+import Layout from '../../components/main.astro';
+import AdminPage from './components/index.svelte'
+---
+<Layout title="Araştıranlar Admin Sayfası" id='Layout'>
+    <AdminPage client:load/>
+</Layout>
+
+<style>
+    body {
+    	margin: 0;
+    	font-family: "Roboto", sans-serif;
+    }
+</style>

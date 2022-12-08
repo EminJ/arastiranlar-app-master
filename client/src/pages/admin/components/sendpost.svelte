@@ -146,10 +146,6 @@
         border-radius: 0 8px 8px 0;
         background-color: #5daf8f;
     }
-    input:focus,
-    textarea:focus {
-        outline: 0;
-    }
     #send_database_post_btn {
         width: 130px;
         height: 42px;

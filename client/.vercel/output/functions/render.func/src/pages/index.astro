@@ -1,0 +1,24 @@
+---
+import Layout from "../components/main.astro";
+import ShowPost from "./blog_posts/App.svelte";
+import Navbar from "../components/navbar.svelte";
+---
+
+<Layout title="Arastiranlar Ana Sayfa">
+	<Navbar client:idle />
+	<div class="main-panel">
+		<ShowPost client:idle />
+	</div>
+</Layout>
+
+<style>
+	.main-panel {
+		max-width: 0px;
+		height: auto;
+		margin: auto;
+		display: flex;
+		flex-direction: column;
+		flex-wrap: nowrap;
+		align-items: center;
+	}
+</style>

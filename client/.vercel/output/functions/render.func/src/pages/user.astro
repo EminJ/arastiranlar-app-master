@@ -1,0 +1,10 @@
+---
+import Layout from "../components/main.astro";
+import Navbar from "../components/navbar.svelte";
+import App from "./user/App.svelte";
+---
+<Layout title="Arastiranlar Ana Sayfa">
+	<Navbar client:idle/>
+		<App client:idle/>
+</Layout>
+

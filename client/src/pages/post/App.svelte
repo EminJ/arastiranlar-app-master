@@ -241,13 +241,6 @@
     background-color: #b4241c;
     margin: 0 5px;
   }
-  .msgedit {
-    padding: 0 8px;
-    color: #f9f9f9;
-    border-radius: 5px;
-    background-color: #cd8e12;
-    margin: 0 5px;
-  }
   @media screen and (max-width: 1080px) {
     .outline{
       width: 860px;
