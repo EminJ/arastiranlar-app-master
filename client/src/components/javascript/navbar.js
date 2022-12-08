@@ -58,7 +58,7 @@ export function login() {
   const login_end=document.getElementById('login_end');
   const options = {
     method: 'POST',
-    url: 'http://localhost:5678/api/auth/signin',
+    url: 'http://34.234.63.247:5678/api/auth/signin',
     headers: {'Content-Type': 'application/json'},
     data: {email: log_email.value, password: log_password.value}
   };
@@ -78,7 +78,7 @@ export function register() {
   const reg_username=document.getElementById('reg_username');
   const reg_name=document.getElementById('reg_name');
   const reg_surname=document.getElementById('reg_surname');
-  axios.post('http://localhost:5678/api/auth/signup', {
+  axios.post('http://34.234.63.247:5678/api/auth/signup', {
     username: reg_username.value,
     name: reg_name.value,
     surname: reg_surname.value,

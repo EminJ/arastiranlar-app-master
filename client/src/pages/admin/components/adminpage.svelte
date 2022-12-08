@@ -14,7 +14,7 @@
     async function loadinfo(querylogin) {
         const options = {
             method: "POST",
-            url: "http://localhost:5678/api/test/user",
+            url: "http://34.234.63.247:5678/api/test/user",
             headers: { "Content-Type": "application/json" },
             data: {
                 token: querylogin,

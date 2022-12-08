@@ -2,7 +2,7 @@ import axios from "axios";
 import {unescape} from 'html-escaper';
 
 export async function get(params){
-    const data = await axios.get('http://localhost:5678/api/show/post/');
+    const data = await axios.get('http://34.234.63.247:5678/api/show/post/');
     for (let i = 0; i < data.data.blogposts.length; i++) {
         const element = data.data.blogposts[i];
         if(element._id==params){
@@ -10,7 +10,7 @@ export async function get(params){
             document.getElementById('likecount').innerHTML=element.post_up;
             document.getElementById('dislikecount').innerHTML=element.post_down;
             document.getElementById('main').innerHTML=unescape(element.post_text).split('</div>')[0].replace('<div class="ql-editor" data-gramm="false" contenteditable="true" data-placeholder="Blog Yazmaya başla..." style="user-select: auto;">','<div>').replace('<div class="ql-editor" data-gramm="false" contenteditable="true" data-placeholder="Blog Yazmaya başla...">','<div>').replaceAll('<img','<img style="max-width:100%"');
-            axios.post('http://localhost:5678/api/test/post', {
+            axios.post('http://34.234.63.247:5678/api/test/post', {
                 token:decodeURIComponent(document.cookie).split(';')[0].split('=')[1] || '',
                 postid: params,
             })
@@ -42,7 +42,7 @@ export async function get(params){
 export async function loadmessage(params) {
     const options = {
       method: "POST",
-      url: "http://localhost:5678/api/show/post/comments",
+      url: "http://34.234.63.247:5678/api/show/post/comments",
       headers: { "Content-Type": "application/json" },
       data: {
         postid: params,
@@ -54,7 +54,7 @@ export async function loadmessage(params) {
   }
 
 export async function like(params){
-    axios.post('http://localhost:5678/api/post/like', {
+    axios.post('http://34.234.63.247:5678/api/post/like', {
         token:decodeURIComponent(document.cookie).split(';')[0].split('=')[1] || '',
         postid: params,
     })
@@ -79,7 +79,7 @@ export async function like(params){
     });
 }
 export async function dislike(params){
-    axios.post('http://localhost:5678/api/post/dislike', {
+    axios.post('http://34.234.63.247:5678/api/post/dislike', {
         token:decodeURIComponent(document.cookie).split(';')[0].split('=')[1] || '',
         postid: params,
     })
@@ -105,7 +105,7 @@ export async function dislike(params){
     });
 }
 export async function send_message(params){
-    axios.post('http://localhost:5678/api/post/comments', {
+    axios.post('http://34.234.63.247:5678/api/post/comments', {
         token:decodeURIComponent(document.cookie).split(';')[0].split('=')[1] || '',
         postid: params,
         message: document.getElementById("sendcomments").value
@@ -118,7 +118,7 @@ export async function send_message(params){
     });
 }
 export async function postsave(params){
-    axios.post('http://localhost:5678/api/post/save', {
+    axios.post('http://34.234.63.247:5678/api/post/save', {
         token:decodeURIComponent(document.cookie).split(';')[0].split('=')[1] || '',
         postid: params,
     })
@@ -133,7 +133,7 @@ export async function postsave(params){
 
 
 export async function deletemessage(messageid,params){
-    axios.post('http://localhost:5678/api/post/commentsdell', {
+    axios.post('http://34.234.63.247:5678/api/post/commentsdell', {
         token:decodeURIComponent(document.cookie).split(';')[0].split('=')[1] || '',
         messageid: messageid,
         tokenpost: params
@@ -161,7 +161,7 @@ export async function editmessage_submit(messageid,oldtext){
         document.getElementById('alertediterr1').style.display='block';
         return
     }
-    axios.post('http://localhost:5678/api/post/commentsedit', {
+    axios.post('http://34.234.63.247:5678/api/post/commentsedit', {
         token:decodeURIComponent(document.cookie).split(';')[0].split('=')[1] || '',
         messageid: messageid,
         newtext: document.getElementById('newtext_msg'+messageid).innerHTML,

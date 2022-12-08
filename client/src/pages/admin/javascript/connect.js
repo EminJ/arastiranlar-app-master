@@ -44,7 +44,7 @@ export function sendpost_finish(text) {
         const element = arr[i];
         catarray.push(element);  
     }
-    axios.post('http://localhost:5678/api/admin/post', {
+    axios.post('http://34.234.63.247:5678/api/admin/post', {
         author:decodedCookie,
         title: title,
         explanation: explanation,
@@ -61,7 +61,7 @@ export function sendpost_finish(text) {
 }
 
 export async function getveriable() {
-    const { data } = await axios.get('http://localhost:5678/api/veriable/count');
+    const { data } = await axios.get('http://34.234.63.247:5678/api/veriable/count');
     //document.getElementById('countuser').innerHTML=data.user;
     //document.getElementById('countpost').innerHTML=data.post;
     return data;
@@ -70,7 +70,7 @@ export async function getveriable() {
 export async function getinfo(tkn) {
     const options = {
         method: 'POST',
-        url: 'http://localhost:5678/api/test/user',
+        url: 'http://34.234.63.247:5678/api/test/user',
         headers: {'Content-Type': 'application/json'},
         data: {
           token: tkn,
@@ -112,7 +112,7 @@ export async function showusers() {
 export async function deleteuser(tkn) {
   const options = {
     method: 'POST',
-    url: 'http://localhost:5678/api/admin/delete/user',
+    url: 'http://34.234.63.247:5678/api/admin/delete/user',
     headers: {'Content-Type': 'application/json'},
     data: {
       tokenadmin: decodeURIComponent(document.cookie).split(';')[0].split('=')[1],
@@ -130,7 +130,7 @@ export async function perm(tkn,slct) {
 
     const options = {
       method: 'POST',
-      url: 'http://localhost:5678/api/admin/perm/user',
+      url: 'http://34.234.63.247:5678/api/admin/perm/user',
       headers: {'Content-Type': 'application/json'},
       data: {
         tokenadmin: decodeURIComponent(document.cookie).split(';')[0].split('=')[1],
@@ -151,7 +151,7 @@ export async function post_dell() {
 
     const options = {
       method: 'POST',
-      url: 'http://localhost:5678/api/admin/perm/user',
+      url: 'http://34.234.63.247:5678/api/admin/perm/user',
       headers: {'Content-Type': 'application/json'},
       data: {
         tokenadmin: decodeURIComponent(document.cookie).split(';')[0].split('=')[1],

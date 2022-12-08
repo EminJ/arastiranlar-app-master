@@ -8,12 +8,12 @@
     });
   let postsInfo;
   async function loadposts() {
-    const { data } = await axios.get("http://localhost:5678/api/show/post");
+    const { data } = await axios.get("http://34.234.63.247:5678/api/show/post");
     postsInfo = data.blogposts;
   
     const options = {
       method: "POST",
-      url: "http://localhost:5678/api/user/show/likes",
+      url: "http://34.234.63.247:5678/api/user/show/likes",
       headers: { "Content-Type": "application/json" },
       data: {
         token: token,

@@ -5,7 +5,7 @@
   async function loadinfo(postsArray) {
       const options = {
         method: "POST",
-        url: "http://localhost:5678/api/admin/list/user",
+        url: "http://34.234.63.247:5678/api/admin/list/user",
         headers: { "Content-Type": "application/json" },
         data: {
           token: postsArray,

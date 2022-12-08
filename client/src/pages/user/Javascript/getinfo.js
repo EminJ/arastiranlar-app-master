@@ -17,7 +17,7 @@ export function gets() {
   const change_email = document.getElementById('change_email');
   const options = {
     method: 'POST',
-    url: 'http://localhost:5678/api/test/user',
+    url: 'http://34.234.63.247:5678/api/test/user',
     headers: {'Content-Type': 'application/json'},
     data: {token: decodedCookie}
   };
@@ -39,7 +39,7 @@ export function update() {
   const change_email = document.getElementById('change_email');
   const options = {
     method: 'POST',
-    url: 'http://localhost:5678/api/test/user',
+    url: 'http://34.234.63.247:5678/api/test/user',
     headers: {'Content-Type': 'application/json'},
     data: {token: decodedCookie}
   };
@@ -67,7 +67,7 @@ export function send() {
   const change_email = document.getElementById('change_email');
   const options = {
     method: 'POST',
-    url: 'http://localhost:5678/api/change/userinfo',
+    url: 'http://34.234.63.247:5678/api/change/userinfo',
     headers: {'Content-Type': 'application/json'},
     data: {
       token: decodedCookie,
