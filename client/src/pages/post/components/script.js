@@ -9,7 +9,7 @@ export async function get(params){
             document.getElementById('post_name').innerHTML=element.post_title;
             document.getElementById('likecount').innerHTML=element.post_up;
             document.getElementById('dislikecount').innerHTML=element.post_down;
-            document.getElementById('main').innerHTML=unescape(element.post_text).split('</div>')[0].replace('<div class="ql-editor" data-gramm="false" contenteditable="true" data-placeholder="Blog Yazmaya başla..." style="user-select: auto;">','<div>').replace('<div class="ql-editor" data-gramm="false" contenteditable="true" data-placeholder="Blog Yazmaya başla...">','<div>');
+            document.getElementById('main').innerHTML=unescape(element.post_text).split('</div>')[0].replace('<div class="ql-editor" data-gramm="false" contenteditable="true" data-placeholder="Blog Yazmaya başla..." style="user-select: auto;">','<div>').replace('<div class="ql-editor" data-gramm="false" contenteditable="true" data-placeholder="Blog Yazmaya başla...">','<div>').replaceAll('<img','<img style="max-width:100%"');
             axios.post('http://localhost:5678/api/test/post', {
                 token:decodeURIComponent(document.cookie).split(';')[0].split('=')[1] || '',
                 postid: params,

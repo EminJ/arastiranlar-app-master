@@ -130,7 +130,9 @@
 </div>
 <style>
   @import "https://cdn.quilljs.com/1.3.6/quill.snow.css";
-
+  #post_name{
+    margin-right: 10px;
+  }
   .alert {
     margin-top: 20px;
     padding: 20px;
@@ -159,13 +161,16 @@
     padding: 0 30px;
   }
   .menu {
-    height: 40px;
+    height: auto;
     font-size: 1.2rem;
     display: flex;
     justify-content: space-between;
+    margin-bottom: 10px;
   }
   .menualt {
     font-size: 1.5rem;
+    display: flex;
+    flex-wrap: nowrap;
   }
   .main {
     font-size: 1.28rem;
@@ -284,6 +289,12 @@
     }
     .commentstext{
       width: 200px;
+    }
+    #likecount{
+      display: none;
+    }
+    #dislikecount{
+      display: none;
     }
     }
 </style>

@@ -13,7 +13,7 @@
   </div>
 {:then postsArray} 
   {#each postsArray as post}
-  {#if post.post_title.includes(searchtext)}
+  {#if post.post_title.toLowerCase().includes(searchtext.toLowerCase())}
     <div class="outline">
       <div class="area0">
         <div class="img">
@@ -74,9 +74,9 @@
   .area1 .list0{
     width: 550px;
     margin: 0 5px;
-    height: 30px;
+    height: auto;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: space-between;
     overflow: hidden;
     border-radius: 3px;
@@ -90,6 +90,7 @@
     flex-wrap: wrap;
     justify-content: space-between;
     overflow-wrap: break-word;
+    overflow: hidden;
   }
   .list1 .explanation{
     width: 100%;
@@ -219,7 +220,7 @@
       width: 360px;
     }
     .area1 .list1{
-      width: 360px;
+      width: 300px;
     }
     .outline{
       width: 530px;
