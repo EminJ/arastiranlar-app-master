@@ -7,10 +7,6 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.json({limit: '10mb'}));
 app.use(bodyParser.urlencoded({limit: '10mb', extended: true}));
-const corsOptions = {
-    exposedHeaders: 'Authorization',
-};
-app.use(cors(corsOptions));
 app.use(session({
     secret: 'secret-key',
     resave: false,
