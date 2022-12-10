@@ -6,13 +6,11 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.json({limit: '10mb'}));
 app.use(bodyParser.urlencoded({limit: '10mb', extended: true}));
-const cors = require("cors");
-app.use(
-  cors({
-    origin: ["https://loose-luminosity.vercel.app/"],
-    credentials: true
-  })
-);
+var corsOptions = {
+    origin: '*',
+    optionsSuccessStatus: 200 
+  }
+  app.use(cors(corsOptions)); 
 app.use(session({
     secret: 'secret-key',
     resave: false,
