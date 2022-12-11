@@ -4,14 +4,18 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 
 const app = express();
+var whitelist = ['https://loose-luminosity.vercel.app','76.76.21.164']
+var corsOptions = {
+     origin: (origin, callback) => {
+          if (whitelist.indexOf(origin) !== -1)
+               callback(null, true);
+          else
+               callback(new Error("! ! !"));
+     }
+}
 app.use(bodyParser.json());
 app.use(bodyParser.json({limit: '10mb'}));
 app.use(bodyParser.urlencoded({limit: '10mb', extended: true}));
-var corsOptions = {
-    origin: '*',
-    optionsSuccessStatus: 200 
-  }
-  app.use(cors(corsOptions)); 
 app.use(session({
     secret: 'secret-key',
     resave: false,
@@ -20,9 +24,8 @@ app.use(session({
     cookie: { secure: true }
     }));
 
-app.get('/', (req,res)=>{
-    const token = req.session ? null : "null";
-    res.send(token);
+app.get('/',cors(corsOptions), (req,res)=>{
+    res.send('s..s');
 })
 
 require("./routes/auth.routes")(app);
